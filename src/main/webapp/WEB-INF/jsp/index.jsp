@@ -5,7 +5,7 @@
 <!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
 
-<%@page contentType="text/html;charset=UTF-8" language="java" %>
+<%@page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <head>
@@ -47,7 +47,7 @@
 <header>
 	<div class="wrap-header">
 		<div id="logo">
-			<a href="#"><h1>HORIZON</h1></a>
+			<a href="/index"><h1>HORIZON</h1></a>
 			<p> Welcome To My Blog </p>
 		</div>
 		
@@ -75,7 +75,7 @@
                     <c:forEach var="article" items="${articles}">
                         <article>
                             <div class="heading">
-                                <h2><a href="#">${article.title}</a></h2>
+                                <h2><a href="/blog?id=${article.id}">${article.title}</a></h2>
                             </div>
                             <div class="content">
                                 <img src="statics/images/img1.jpg" width="250px" height="100px"/>
