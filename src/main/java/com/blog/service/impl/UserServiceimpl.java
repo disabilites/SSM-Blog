@@ -57,7 +57,12 @@ public class UserServiceimpl implements UserService {
     }
 
     @Override
-    public User login(User user) {
-        return null;
+    public User loginCheck(User user) {
+        return userMapper.loginCheck(user);
+    }
+
+    @Override
+    public User registerCheck(String name){
+        return userMapper.registerCheck(name);
     }
 }

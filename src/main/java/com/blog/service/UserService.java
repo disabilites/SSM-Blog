@@ -11,5 +11,7 @@ public interface UserService {
 
     String update(User user);
 
-    User login(User user);
+    User loginCheck(User user);
+
+    User registerCheck(String name);
 }
