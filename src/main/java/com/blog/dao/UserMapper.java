@@ -10,4 +10,8 @@ public interface UserMapper {
     User selectByPrimaryKey(String name);
 
     int updateByPrimaryKey(User record);
+
+    User loginCheck(User user);
+
+    User registerCheck(String name);
 }
