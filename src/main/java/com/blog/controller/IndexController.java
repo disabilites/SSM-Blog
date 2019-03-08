@@ -27,11 +27,10 @@ public class IndexController {
 
     @RequestMapping("/index")
     public ModelAndView index(){
-        ModelAndView mav = new ModelAndView();
+        ModelAndView mav = new ModelAndView("index");
         List<Article> articles;
         articles = articleService.getAll();
         mav.addObject("articles", articles);
-        mav.setViewName("index");
         return mav;
     }
 }
