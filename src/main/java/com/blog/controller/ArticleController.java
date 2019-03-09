@@ -43,12 +43,13 @@ public class ArticleController {
         HashMap<String, List<Article>> articlesMap = new HashMap<>();
         articles = articleService.getAll();
         for (Article article: articles){
-            if (!articlesMap.containsKey(simpleDateFormat.format(article.getDate()))){
-                articlesMap.put(simpleDateFormat.format(article.getDate()), new ArrayList<Article>());
-                articlesMap.get(simpleDateFormat.format(article.getDate())).add(article);
+            String year = simpleDateFormat.format(article.getDate());
+            if (!articlesMap.containsKey(year)){
+                articlesMap.put(year, new ArrayList<Article>());
+                articlesMap.get(year).add(article);
             }
             else {
-                articlesMap.get(simpleDateFormat.format(article.getDate())).add(article);
+                articlesMap.get(year).add(article);
             }
         }
         mav.addObject("articlesMap", articlesMap);
