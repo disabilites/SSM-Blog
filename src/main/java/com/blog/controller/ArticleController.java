@@ -54,4 +54,24 @@ public class ArticleController {
         mav.addObject("articlesMap", articlesMap);
         return mav;
     }
+
+    @RequestMapping("/tags")
+    public ModelAndView TagsController(){
+        ModelAndView mav = new ModelAndView("tags");
+        List<Article> articles;
+        HashMap<String, List<Article>> articlesMap = new HashMap<>();
+        articles = articleService.getAll();
+        for (Article article: articles){
+            String tag = article.getTag();
+            if (! articlesMap.containsKey(tag)){
+                articlesMap.put(tag, new ArrayList<Article>());
+                articlesMap.get(tag).add(article);
+            }
+            else {
+                articlesMap.get(tag).add(article);
+            }
+        }
+        mav.addObject("articlesMap", articlesMap);
+        return mav;
+    }
 }
