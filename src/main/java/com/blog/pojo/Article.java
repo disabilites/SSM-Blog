@@ -13,12 +13,15 @@ public class Article {
 
     private String tag;
 
-    public Article(Integer id, String title, Date date, String content, String tag) {
+    private String state;
+
+    public Article(Integer id, String title, Date date, String content, String tag, String state) {
         this.id = id;
         this.title = title;
         this.date = date;
         this.content = content;
         this.tag = tag;
+        this.state = state;
     }
 
     public Article() {
@@ -63,5 +66,13 @@ public class Article {
 
     public void setTag(String tag) {
         this.tag = tag == null ? null : tag.trim();
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
     }
 }
