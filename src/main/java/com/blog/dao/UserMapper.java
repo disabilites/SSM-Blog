@@ -14,4 +14,6 @@ public interface UserMapper {
     User loginCheck(User user);
 
     User registerCheck(String name);
+
+    int getCount();
 }

@@ -14,4 +14,6 @@ public interface ArticleMapper {
     int updateByPrimaryKey(Article record);
 
     List<Article> getAll();
+
+    int getCount();
 }
