@@ -14,4 +14,6 @@ public interface UserService {
     User loginCheck(User user);
 
     User registerCheck(String name);
+
+    int getCount();
 }

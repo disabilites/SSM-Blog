@@ -15,4 +15,6 @@ public interface ArticleService {
     String update(Article article);
 
     String delete(int id);
+
+    int getCount();
 }
