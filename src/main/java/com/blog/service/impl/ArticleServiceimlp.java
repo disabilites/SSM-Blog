@@ -47,4 +47,9 @@ public class ArticleServiceimlp implements ArticleService {
     public String delete(int id) {
         return null;
     }
+
+    @Override
+    public int getCount(){
+        return articleMapper.getCount();
+    }
 }

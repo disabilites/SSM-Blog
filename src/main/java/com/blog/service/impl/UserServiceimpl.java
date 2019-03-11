@@ -65,4 +65,9 @@ public class UserServiceimpl implements UserService {
     public User registerCheck(String name){
         return userMapper.registerCheck(name);
     }
+
+    @Override
+    public int getCount(){
+        return userMapper.getCount();
+    }
 }
