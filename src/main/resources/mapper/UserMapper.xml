@@ -5,10 +5,11 @@
     <constructor >
       <idArg column="name" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="password" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="email" jdbcType="VARCHAR" javaType="java.lang.String"/>
     </constructor>
   </resultMap>
   <sql id="Base_Column_List" >
-    name, password
+    name, email, password
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
@@ -21,8 +22,8 @@
     where name = #{name,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" parameterType="com.blog.pojo.User" >
-    insert into user (name, password)
-    values (#{name,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR})
+    insert into user (name, email, password)
+    values (#{name,jdbcType=VARCHAR}, #{email, jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR})
   </insert>
   <update id="updateByPrimaryKey" parameterType="com.blog.pojo.User" >
     update user
@@ -32,5 +33,20 @@
   
   <select id="getAll" resultMap="BaseResultMap">
     select * from user
+  </select>
+  
+  <select id="loginCheck" resultMap="BaseResultMap" parameterType="com.blog.pojo.User">
+    select * from user
+    where email = #{email,jdbcType=VARCHAR} and
+          password = #{password,jdbcType=VARCHAR}
+  </select>
+  
+  <select id="registerCheck"  resultMap="BaseResultMap" parameterType="java.lang.String">
+    select * from user
+    where name = #{name,jdbcType=VARCHAR}
+  </select>
+  
+  <select id="getCount" resultType="java.lang.Integer">
+    select count(*) from user
   </select>
 </mapper>

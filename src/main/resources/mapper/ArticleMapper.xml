@@ -6,12 +6,14 @@
       <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
       <arg column="title" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="date" jdbcType="TIMESTAMP" javaType="java.util.Date" />
-      <arg column="content" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="content_html" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="content_md" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="tag" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="state" jdbcType="VARCHAR" javaType="java.lang.String"/>
     </constructor>
   </resultMap>
   <sql id="Base_Column_List" >
-    id, title, date, content, tag
+    id, title, date, content_html, contene_md, tag, state
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -40,6 +42,10 @@
   </update>
   
   <select id="getAll" resultMap="BaseResultMap">
-    select * from article
+    select * from article order by date desc
+  </select>
+  
+  <select id="getCount" resultType="java.lang.Integer">
+    select count(*) from article
   </select>
 </mapper>
