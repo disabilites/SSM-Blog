@@ -9,24 +9,13 @@ public class Article {
 
     private Date date;
 
-    private String content;
+    private String content_html;
+
+    private String context_md;
 
     private String tag;
 
     private String state;
-
-    public Article(Integer id, String title, Date date, String content, String tag, String state) {
-        this.id = id;
-        this.title = title;
-        this.date = date;
-        this.content = content;
-        this.tag = tag;
-        this.state = state;
-    }
-
-    public Article() {
-        super();
-    }
 
     public Integer getId() {
         return id;
@@ -41,7 +30,7 @@ public class Article {
     }
 
     public void setTitle(String title) {
-        this.title = title == null ? null : title.trim();
+        this.title = title;
     }
 
     public Date getDate() {
@@ -52,12 +41,20 @@ public class Article {
         this.date = date;
     }
 
-    public String getContent() {
-        return content;
+    public String getContent_html() {
+        return content_html;
     }
 
-    public void setContent(String content) {
-        this.content = content == null ? null : content.trim();
+    public void setContent_html(String content_html) {
+        this.content_html = content_html;
+    }
+
+    public String getContext_md() {
+        return context_md;
+    }
+
+    public void setContext_md(String context_md) {
+        this.context_md = context_md;
     }
 
     public String getTag() {
@@ -65,7 +62,7 @@ public class Article {
     }
 
     public void setTag(String tag) {
-        this.tag = tag == null ? null : tag.trim();
+        this.tag = tag;
     }
 
     public String getState() {
