@@ -11,11 +11,21 @@ public class Article {
 
     private String content_html;
 
-    private String context_md;
+    private String content_md;
 
     private String tag;
 
     private String state;
+
+    public Article(Integer id, String title, Date date, String content_html, String content_md, String tag, String state) {
+        this.id = id;
+        this.title = title;
+        this.date = date;
+        this.content_html = content_html;
+        this.content_md = content_md;
+        this.tag = tag;
+        this.state = state;
+    }
 
     public Integer getId() {
         return id;
@@ -45,16 +55,14 @@ public class Article {
         return content_html;
     }
 
-    public void setContent_html(String content_html) {
-        this.content_html = content_html;
-    }
+    public void setContent_html(String content_html) { this.content_html = content_html; }
 
     public String getContext_md() {
-        return context_md;
+        return content_md;
     }
 
     public void setContext_md(String context_md) {
-        this.context_md = context_md;
+        this.content_md = context_md;
     }
 
     public String getTag() {
