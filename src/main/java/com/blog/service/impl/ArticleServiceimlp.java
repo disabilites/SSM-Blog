@@ -35,17 +35,27 @@ public class ArticleServiceimlp implements ArticleService {
 
     @Override
     public String add(Article article) {
-        return null;
+        if (articleMapper.insert(article) == 1){
+            return "添加成功";
+        }
+        else {
+            return "添加失败";
+        }
     }
 
     @Override
-    public String update(Article article) {
-        return null;
+    public int update(Article article) {
+        return articleMapper.updateByPrimaryKey(article);
     }
 
     @Override
     public String delete(int id) {
-        return null;
+        if (articleMapper.deleteByPrimaryKey(id) == 1){
+            return "删除成功";
+        }
+        else {
+            return "删除失败";
+        }
     }
 
     @Override
