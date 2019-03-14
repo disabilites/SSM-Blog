@@ -27,6 +27,10 @@ public class Article {
         this.state = state;
     }
 
+    public Article(){
+        super();
+    }
+
     public Integer getId() {
         return id;
     }
