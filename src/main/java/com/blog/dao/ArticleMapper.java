@@ -7,7 +7,7 @@ import java.util.List;
 public interface ArticleMapper {
     int deleteByPrimaryKey(Integer id);
 
-    int insert(Article record);
+    int insert(Article article);
 
     Article selectByPrimaryKey(Integer id);
 
