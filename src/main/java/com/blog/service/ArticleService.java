@@ -12,7 +12,7 @@ public interface ArticleService {
 
     String add(Article article);
 
-    String update(Article article);
+    int update(Article article);
 
     String delete(int id);
 
