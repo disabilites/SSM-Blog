@@ -4,6 +4,7 @@ import com.blog.pojo.Article;
 import com.blog.service.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -26,11 +27,11 @@ public class ArticleController {
         this.articleService = articleService;
     }
 
-    @RequestMapping("/blog")
-    public ModelAndView BlogController(int id){
+    @RequestMapping("/blog/{articleId}")
+    public ModelAndView BlogController(@PathVariable int articleId){
         ModelAndView mav = new ModelAndView("blog");
         Article article;
-        article = articleService.select(id);
+        article = articleService.select(articleId);
         mav.addObject("article", article);
         return mav;
     }
