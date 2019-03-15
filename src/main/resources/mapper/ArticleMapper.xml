@@ -13,10 +13,10 @@
     </constructor>
   </resultMap>
   <sql id="Base_Column_List" >
-    id, title, date, content_html, contene_md, tag, state
+    id, title, date, content_html, content_md, tag, state
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select 
+    select
     <include refid="Base_Column_List" />
     from article
     where id = #{id,jdbcType=INTEGER}
@@ -27,17 +27,20 @@
   </delete>
   <insert id="insert" parameterType="com.blog.pojo.Article" >
     insert into article (id, title, date, 
-      content, tag)
+      content_html, content_md, tag, state)
     values (#{id,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{date,jdbcType=TIMESTAMP}, 
-      #{content,jdbcType=VARCHAR}, #{tag,jdbcType=VARCHAR})
+      #{content_html,jdbcType=VARCHAR}, #{content_md,jdbcType=VARCHAR}, #{tag,jdbcType=VARCHAR},
+      #{state,jdbcType=VARCHAR})
   </insert>
 
   <update id="updateByPrimaryKey" parameterType="com.blog.pojo.Article" >
     update article
     set title = #{title,jdbcType=VARCHAR},
       date = #{date,jdbcType=TIMESTAMP},
-      content = #{content,jdbcType=VARCHAR},
-      tag = #{tag,jdbcType=VARCHAR}
+      content_html = #{content_html,jdbcType=VARCHAR},
+      content_md = #{content_md,jdbcType=VARCHAR},
+      tag = #{tag,jdbcType=VARCHAR},
+      state = #{state, jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
   
