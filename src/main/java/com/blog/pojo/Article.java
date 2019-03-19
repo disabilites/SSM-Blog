@@ -13,17 +13,17 @@ public class Article {
 
     private String content_md;
 
-    private String tag;
+    private String classification;
 
     private String state;
 
-    public Article(Integer id, String title, Date date, String content_html, String content_md, String tag, String state) {
+    public Article(Integer id, String title, Date date, String content_html, String content_md, String classification, String state) {
         this.id = id;
         this.title = title;
         this.date = date;
         this.content_html = content_html;
         this.content_md = content_md;
-        this.tag = tag;
+        this.classification = classification;
         this.state = state;
     }
 
@@ -69,12 +69,12 @@ public class Article {
         this.content_md = context_md;
     }
 
-    public String getTag() {
-        return tag;
+    public String getClassification() {
+        return classification;
     }
 
-    public void setTag(String tag) {
-        this.tag = tag;
+    public void setClassification(String classification) {
+        this.classification = classification;
     }
 
     public String getState() {
