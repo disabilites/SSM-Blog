@@ -2,6 +2,8 @@ package com.blog.dao;
 
 import com.blog.pojo.User;
 
+import java.util.List;
+
 public interface UserMapper {
     int deleteByPrimaryKey(String name);
 
@@ -14,6 +16,8 @@ public interface UserMapper {
     User loginCheck(User user);
 
     User registerCheck(String name);
+
+    List<User> getAll();
 
     int getCount();
 }
