@@ -1,14 +1,19 @@
 package com.blog.pojo;
 
+import java.util.Date;
+
 public class Image {
 
     private String name;
 
     private String url;
 
-    public Image(String name, String url) {
+    private Date date;
+
+    public Image(String name, String url, Date date) {
         this.name = name;
         this.url = url;
+        this.date = date;
     }
 
     public Image() {
@@ -20,7 +25,7 @@ public class Image {
     }
 
     public void setName(String name) {
-        this.name = name == null ? null : name.trim();
+        this.name = name;
     }
 
     public String getUrl() {
@@ -28,6 +33,15 @@ public class Image {
     }
 
     public void setUrl(String url) {
-        this.url = url == null ? null : url.trim();
+
+        this.url = url;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 }
