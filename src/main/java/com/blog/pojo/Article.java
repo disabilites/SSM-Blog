@@ -84,4 +84,13 @@ public class Article {
     public void setState(String state) {
         this.state = state;
     }
+
+    public String getContent_md() {
+        return content_md;
+    }
+
+    public void setContent_md(String content_md) {
+        this.content_md = content_md;
+    }
+
 }
