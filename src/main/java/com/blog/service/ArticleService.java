@@ -10,11 +10,11 @@ public interface ArticleService {
 
     List<Article> getAll();
 
-    String add(Article article);
+    int add(Article article);
 
     int update(Article article);
 
-    String delete(int id);
+    int delete(int id);
 
     int getCount();
 }

@@ -14,15 +14,6 @@ public class ArticleServiceimlp implements ArticleService {
     @Autowired
     private ArticleMapper articleMapper;
 
-
-    public ArticleMapper getArticleMapper() {
-        return articleMapper;
-    }
-
-    public void setArticleMapper(ArticleMapper articleMapper) {
-        this.articleMapper = articleMapper;
-    }
-
     @Override
     public Article select(int id) {
         return articleMapper.selectByPrimaryKey(id);
@@ -34,13 +25,8 @@ public class ArticleServiceimlp implements ArticleService {
     }
 
     @Override
-    public String add(Article article) {
-        if (articleMapper.insert(article) == 1){
-            return "添加成功";
-        }
-        else {
-            return "添加失败";
-        }
+    public int add(Article article) {
+        return articleMapper.insert(article);
     }
 
     @Override
@@ -49,17 +35,13 @@ public class ArticleServiceimlp implements ArticleService {
     }
 
     @Override
-    public String delete(int id) {
-        if (articleMapper.deleteByPrimaryKey(id) == 1){
-            return "删除成功";
-        }
-        else {
-            return "删除失败";
-        }
+    public int delete(int id) {
+        return articleMapper.deleteByPrimaryKey(id);
     }
 
     @Override
     public int getCount(){
         return articleMapper.getCount();
     }
+
 }

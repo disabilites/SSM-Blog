@@ -2,18 +2,20 @@ package com.blog.service;
 
 import com.blog.pojo.User;
 
+import java.util.List;
+
 public interface UserService {
     User select(String name);
 
-    String delete(String name);
+    int delete(String name);
 
-    String add(User user);
+    int add(User user);
 
-    String update(User user);
+    int update(User user);
 
     User loginCheck(User user);
 
-    User registerCheck(String name);
+    List<User> getAll();
 
     int getCount();
 }

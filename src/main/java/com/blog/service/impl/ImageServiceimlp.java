@@ -24,23 +24,13 @@ public class ImageServiceimlp implements ImageService {
     }
 
     @Override
-    public String add(Image image) {
-        if (imageMapper.insert(image) == 1){
-            return "添加成功";
-        }
-        else {
-            return "添加失败";
-        }
+    public int add(Image image) {
+        return imageMapper.insert(image);
     }
 
     @Override
-    public String delete(String name) {
-        if (imageMapper.deleteByPrimaryKey(name) == 1){
-            return "添加成功";
-        }
-        else {
-            return "添加失败";
-        }
+    public int delete(String name) {
+        return imageMapper.deleteByPrimaryKey(name);
     }
 
     @Override

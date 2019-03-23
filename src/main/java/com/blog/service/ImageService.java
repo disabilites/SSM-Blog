@@ -6,9 +6,9 @@ import java.util.List;
 
 public interface ImageService {
 
-    String add(Image image);
+    int add(Image image);
 
-    String delete(String name);
+    int delete(String name);
 
     Image select(String name);
 
