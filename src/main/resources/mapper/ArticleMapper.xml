@@ -8,12 +8,12 @@
       <arg column="date" jdbcType="TIMESTAMP" javaType="java.util.Date" />
       <arg column="content_html" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="content_md" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="tag" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="classification" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="state" jdbcType="VARCHAR" javaType="java.lang.String"/>
     </constructor>
   </resultMap>
   <sql id="Base_Column_List" >
-    id, title, date, content_html, content_md, tag, state
+    id, title, date, content_html, content_md, classification, state
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select
@@ -27,9 +27,9 @@
   </delete>
   <insert id="insert" parameterType="com.blog.pojo.Article" >
     insert into article (id, title, date, 
-      content_html, content_md, tag, state)
+      content_html, content_md, classification, state)
     values (#{id,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{date,jdbcType=TIMESTAMP}, 
-      #{content_html,jdbcType=VARCHAR}, #{content_md,jdbcType=VARCHAR}, #{tag,jdbcType=VARCHAR},
+      #{content_html,jdbcType=VARCHAR}, #{content_md,jdbcType=VARCHAR}, #{classification,jdbcType=VARCHAR},
       #{state,jdbcType=VARCHAR})
   </insert>
 
@@ -39,7 +39,7 @@
       date = #{date,jdbcType=TIMESTAMP},
       content_html = #{content_html,jdbcType=VARCHAR},
       content_md = #{content_md,jdbcType=VARCHAR},
-      tag = #{tag,jdbcType=VARCHAR},
+      classification = #{classification,jdbcType=VARCHAR},
       state = #{state, jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
