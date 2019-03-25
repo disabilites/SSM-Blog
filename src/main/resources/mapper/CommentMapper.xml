@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.blog.dao.CommentMapper" >
+  <resultMap id="BaseResultMap" type="com.blog.pojo.Comment" >
+    <constructor >
+      <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="a_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="name" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="email" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="date" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="content" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="a_title" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="state" jdbcType="TINYINT" javaType="java.lang.Integer" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, a_id, name, email, date, content, a_title, state
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from comment
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectByForeignKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select
+    <include refid="Base_Column_List" />
+    from comment
+    where a_id = #{a_id,jdbcType=INTEGER} and
+    state = 1
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from comment
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <update id="updateByPrimaryKey" parameterType="com.blog.pojo.Comment" >
+    update comment
+    set a_id = #{aId,jdbcType=INTEGER},
+      name = #{name,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      date = #{date,jdbcType=TIMESTAMP},
+      content = #{content,jdbcType=VARCHAR},
+      a_title = #{aTitle,jdbcType=VARCHAR},
+      state = #{state, jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <insert id="insert" parameterType="com.blog.pojo.Comment" >
+    insert into comment (id, a_id, name, 
+      email, date, content, 
+      a_title, state)
+    values (#{id,jdbcType=INTEGER}, #{aId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, 
+      #{email,jdbcType=VARCHAR}, #{date,jdbcType=TIMESTAMP}, #{content,jdbcType=VARCHAR}, 
+      #{aTitle,jdbcType=VARCHAR}, #{state,jdbcType=TINYINT})
+  </insert>
+  <select id="getAll" resultMap="BaseResultMap">
+    select * from comment
+  </select>
+  <select id="getCount" resultType="java.lang.Integer">
+    select count(*) from comment
+  </select>
+</mapper>
