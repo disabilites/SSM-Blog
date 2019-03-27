@@ -36,7 +36,6 @@ public class LoginController {
         }
 
         User Loginuser = userService.loginCheck(user);
-        System.out.println(Loginuser);
 
         if (Loginuser != null){
             try {
