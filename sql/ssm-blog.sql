@@ -40,3 +40,5 @@ CREATE TABLE `image` (
   `url` VARCHAR(100) NOT NULL,
   `date` DATETIME NOT NULL,
   PRIMARY KEY (`name`));
+
+INSERT INTO user` (`name`, `email`, `password`) VALUES ('admin', 'admin@qq.com', 'c649d6185032697ada52a13e7ea75bf3');
