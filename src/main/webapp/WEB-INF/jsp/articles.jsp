@@ -46,11 +46,13 @@
                                         <div class="line"></div>
                                         <ul>
                                             <c:forEach var="article" items="${articles.value}">
+                                                <c:if test="${article.state eq '已发布'}">
                                                 <li>
                                                     <time class="time"><fmt:formatDate value="${article.date}" pattern="MM-dd"/></time>
                                                     <span>—</span>
                                                     <a class="details" href="/blog?id=${article.id}" >${article.title}</a>
                                                 </li>
+                                                </c:if>
                                             </c:forEach>
                                         </ul>
                                     </div>
